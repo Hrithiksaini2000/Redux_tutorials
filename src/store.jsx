@@ -35,6 +35,20 @@ function taskreducer(state = initialState, action) {
     }
 }
 
+// Create Actioncreator function
+const addtask = (data) =>{
+    return{
+    type: Add_Task,
+    payload: data
+    }
+}
+
+const deletetask = (id) =>{
+    return{
+    type: Delete_Task,
+    payload: id 
+    }
+}
 
 // Create a store 
 const store = createStore(taskreducer)
@@ -42,24 +56,15 @@ const store = createStore(taskreducer)
 console.log("Intial state: ", store.getState())
 
 // Dispatch Function
-store.dispatch({
-    type: Add_Task,
-    payload: "Buy one manago"
-})
+store.dispatch(addtask("Buy One Mango"))
 
 // Get State
 console.log("Add Dispatch", store.getState())
 
-store.dispatch({
-    type: Add_Task,
-    payload: "Buy One more manago"
-})
+store.dispatch(addtask("Buy One More Mango"))
 
 console.log("Add Dispatch", store.getState())
 
-store.dispatch({
-    type: Delete_Task,
-    payload: 1
-})
+store.dispatch(deletetask(1))
 
 console.log("Delete Dispatch", store.getState())
