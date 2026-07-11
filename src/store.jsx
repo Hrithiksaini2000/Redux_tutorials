@@ -51,7 +51,7 @@ const deletetask = (id) =>{
 }
 
 // Create a store 
-const store = createStore(taskreducer)
+export const store = createStore(taskreducer)
 
 console.log("Intial state: ", store.getState())
 
