@@ -10,6 +10,7 @@ import "./App.css"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+  {/* This is a Provider component which is act as bridge between react and redux */}
     <Provider store={store}>
       <App />
     </Provider>

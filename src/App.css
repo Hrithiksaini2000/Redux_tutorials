@@ -214,3 +214,12 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+li{
+  list-style: none;
+  color: #000;
+      display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}

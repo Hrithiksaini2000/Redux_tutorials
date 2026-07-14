@@ -20,7 +20,7 @@ function taskreducer(state = initialState, action) {
 
         case Delete_Task:
             const update_task = state.task.filter((curs_task, index) => {
-                return index === action.payload
+                return index !== action.payload
             })
 
             console.log(update_task)
@@ -57,6 +57,8 @@ console.log("Intial state: ", store.getState())
 
 // Dispatch Function
 store.dispatch(addtask("Buy One Mango"))
+store.dispatch(addtask("Buy One Apple"))
+store.dispatch(addtask("Buy One Orange"))
 
 // Get State
 console.log("Add Dispatch", store.getState())
@@ -66,5 +68,4 @@ store.dispatch(addtask("Buy One More Mango"))
 console.log("Add Dispatch", store.getState())
 
 store.dispatch(deletetask(1))
-
 console.log("Delete Dispatch", store.getState())
