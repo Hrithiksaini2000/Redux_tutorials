@@ -36,14 +36,14 @@ function taskreducer(state = initialState, action) {
 }
 
 // Create Actioncreator function
-const addtask = (data) =>{
+export const addtask = (data) =>{
     return{
     type: Add_Task,
     payload: data
     }
 }
 
-const deletetask = (id) =>{
+export const deletetask = (id) =>{
     return{
     type: Delete_Task,
     payload: id 
