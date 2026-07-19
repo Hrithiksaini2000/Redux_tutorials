@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { MdDeleteForever } from "react-icons/md"
 import { useState } from "react"
-import { addtask, deletetask } from "../store"
+import { addtask, deletetask, fetchtask } from "../store"
 
 export const Todo = () => {
 
@@ -12,10 +12,22 @@ export const Todo = () => {
 
     const dispatch = useDispatch()
 
-    const handleformsubmit=(e)=>{
-        e.preventDefault()  
-        dispatch(addtask(task))
-        return setTask("")
+    // const handleformsubmit=(e)=>{
+    //     e.preventDefault()  
+    //     dispatch(addtask(task))
+    //     return setTask("")
+    // }
+    const handleformsubmit = (e) => {
+    e.preventDefault();
+
+    if (!task.trim()) return;
+
+    dispatch(addtask(task));
+    setTask("");
+};
+
+    const handlefetchtasks = () =>{
+        dispatch(fetchtask())
     }
 
     const handletaskdelete=(id)=>{
@@ -29,6 +41,7 @@ export const Todo = () => {
                     <form onSubmit={handleformsubmit}>
                         <input type="text" id="input-box" placeholder="Add a new task" value={task} onChange={(e) => setTask(e.target.value)}/>
                         <button>Add Task</button>
+                        <button onClick={handlefetchtasks}>Fetch Tasks</button>
                     </form>
                 </div>
                 <ul id="list-container">
