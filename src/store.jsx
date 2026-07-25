@@ -3,6 +3,7 @@ import { applyMiddleware, createStore } from "redux"
 
 import { composeWithDevTools } from "@redux-devtools/extension";
 import { thunk } from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
 const Add_Task = "type/add"
 const Delete_Task = "type/delete"
@@ -79,7 +80,15 @@ export const fetchtask = () =>{
 }
 
 // Create a store 
-export const store = createStore(taskreducer,composeWithDevTools(applyMiddleware(thunk)))
+// Old method to create a store 
+// export const store = createStore(taskreducer,composeWithDevTools(applyMiddleware(thunk)))
+
+// New method 
+export const store = configureStore({
+    reducer:{
+        taskreducer,
+    }
+})
 
 console.log("Intial state: ", store.getState())
 
