@@ -7,7 +7,8 @@ export const Todo = () => {
 
     const [task, setTask] = useState("")
 
-    const tasks = useSelector((state) => state.taskreducer.task)
+    // const tasks = useSelector((state) => state.taskreducer.task)
+    const tasks = useSelector((state) => state.task)
     //    console.log("React States",state.task)
 
     const dispatch = useDispatch()

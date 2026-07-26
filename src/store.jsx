@@ -3,7 +3,7 @@ import { applyMiddleware, createStore } from "redux"
 
 import { composeWithDevTools } from "@redux-devtools/extension";
 import { thunk } from "redux-thunk";
-import { configureStore } from "@reduxjs/toolkit";
+// import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const Add_Task = "type/add"
 const Delete_Task = "type/delete"
@@ -81,14 +81,37 @@ export const fetchtask = () =>{
 
 // Create a store 
 // Old method to create a store 
-// export const store = createStore(taskreducer,composeWithDevTools(applyMiddleware(thunk)))
+export const store = createStore(taskreducer,composeWithDevTools(applyMiddleware(thunk)))
+
+// Redux toolkit code
+// RTK create Slice
+
+// const taskreducer = createSlice({
+//     name: "task",
+//     initialState,
+//     reducers:{
+//         addtask(state, action){
+//             state.task.push(action.payload)
+//         },
+//         deletetask(state, action){
+//             state.task === state.task.filter((cur_task,index)=>{
+//                 index !== action.payload
+//             })
+//         },
+//     }
+// })
+
+// console.log(taskreducer)
+
+// Action creators
+// const {addtask, deletetask} = taskreducer.actions
 
 // New method 
-export const store = configureStore({
-    reducer:{
-        taskreducer,
-    }
-})
+// export const store = configureStore({
+//     reducer:{
+//         taskreducer: taskreducer.reducer,
+//     }
+// })
 
 console.log("Intial state: ", store.getState())
 

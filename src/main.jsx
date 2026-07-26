@@ -5,7 +5,8 @@ import {App} from './App.jsx'
 // import "./store.jsx"
 // import "./store2.jsx"
 import { Provider } from 'react-redux'
-import { store } from './store.jsx'
+// import { store } from './store.jsx'
+import { store } from '../storertk.jsx'
 import "./App.css"
 
 createRoot(document.getElementById('root')).render(
