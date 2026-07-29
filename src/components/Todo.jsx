@@ -7,8 +7,10 @@ export const Todo = () => {
 
     const [task, setTask] = useState("")
 
-    // const tasks = useSelector((state) => state.taskreducer.task)
-    const tasks = useSelector((state) => state.task)
+    // This is use after redux toolkit 
+    const tasks = useSelector((state) => state.taskreducer.task)
+    // This will use before redux toolkit 
+    // const tasks = useSelector((state) => state.task)
     //    console.log("React States",state.task)
 
     const dispatch = useDispatch()
