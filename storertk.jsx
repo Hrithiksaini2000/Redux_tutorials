@@ -20,8 +20,8 @@ const taskreducer = createSlice({
             state.task.push(action.payload)
         },
         deletetask(state, action){
-            state.task === state.task.filter((cur_task,index)=>{
-                index !== action.payload
+            state.task = state.task.filter((cur_task,index)=>{
+              return index !== action.payload
             })
         },
     }
@@ -30,7 +30,7 @@ const taskreducer = createSlice({
 // console.log(taskreducer)
 
 // Action creators
-const {addtask, deletetask} = taskreducer.actions
+export const {addtask, deletetask} = taskreducer.actions
 
 // New method 
 export const store = configureStore({
